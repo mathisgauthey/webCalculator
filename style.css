@@ -1,13 +1,15 @@
 html {
-  background: #ffffff;
+  background: #000000;
+  background: radial-gradient(ellipse at center top, #0400ff, transparent),
+    radial-gradient(ellipse at center bottom, #ff0000, transparent);
   background-attachment: fixed;
-  color: #000;
+  color: #ffffff;
 }
 
 body {
   background: #adacac;
   background-attachment: fixed;
-  color: #f70000;
+  color: #ffffff;
 }
 
 h1 {
