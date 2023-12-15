@@ -21,6 +21,34 @@ function operator() {
   operator = this.getAttribute("data-ops");
 }
 
+function displayResult() {
+  previousNum = parseFloat(previousNum);
+  currentNum = parseFloat(currentNum);
+
+  switch (operator) {
+    case "plus":
+      resultNum = previousNum + currentNum;
+      break;
+
+    case "minus":
+      resultNum = previousNum - currentNum;
+      break;
+
+    case "times":
+      resultNum = previousNum * currentNum;
+      break;
+
+    case "divided by":
+      resultNum = previousNum / currentNum;
+      break;
+
+    default:
+      resultNum = currentNum;
+  }
+
+  viewer.innerHTML = resultNum;
+}
+
 function clear() {
   currentNum = "";
   previousNum = "";
@@ -41,3 +69,6 @@ for (var i = 0, l = ops.length; i < l; i++) {
 
 // Add click event to clear
 document.querySelector("#clear").onclick = clear;
+
+// Add click event to equal sign
+equals.onclick = displayResult;
