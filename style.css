@@ -1,0 +1,16 @@
+html {
+  background: #ffffff;
+  background-attachment: fixed;
+  color: #000;
+}
+
+body {
+  background: #adacac;
+  background-attachment: fixed;
+  color: #f70000;
+}
+
+h1 {
+  font-weight: 300;
+  margin: 0;
+}
