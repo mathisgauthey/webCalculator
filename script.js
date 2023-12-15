@@ -15,7 +15,7 @@ function setNum() {
   viewer.innerHTML = currentNum; // Display current number
 }
 
-function operator() {
+function operationSelection() {
   previousNum = currentNum;
   currentNum = "";
   operator = this.getAttribute("data-ops");
@@ -64,7 +64,7 @@ for (var i = 0, l = nums.length; i < l; i++) {
 
 // Add click event to operators
 for (var i = 0, l = ops.length; i < l; i++) {
-  ops[i].onclick = operator;
+  ops[i].onclick = operationSelection;
 }
 
 // Add click event to clear
