@@ -15,6 +15,12 @@ function setNum() {
   viewer.innerHTML = currentNum; // Display current number
 }
 
+function operator() {
+  previousNum = currentNum;
+  currentNum = "";
+  operator = this.getAttribute("data-ops");
+}
+
 function clear() {
   currentNum = "";
   previousNum = "";
@@ -26,6 +32,11 @@ function clear() {
 // Add click event to numbers
 for (var i = 0, l = nums.length; i < l; i++) {
   nums[i].onclick = setNum;
+}
+
+// Add click event to operators
+for (var i = 0, l = ops.length; i < l; i++) {
+  ops[i].onclick = operator;
 }
 
 // Add click event to clear
