@@ -5,7 +5,8 @@ var viewer_accumulator = document.querySelector("#accumulator"), // Viewer for p
   calc_ops = document.querySelectorAll(".ops"), // List of operators
   calc_equals = document.getElementById("equals"), // Equal button
   calc_clear = document.getElementById("clear"), // Clear button
-  calc_clear_entry = document.getElementById("clear_entry"); // Clear entry button
+  calc_clear_entry = document.getElementById("clear_entry"), // Clear entry button
+  calc_backspace = document.getElementById("backspace"); // Backspace button
 
 //Variables
 var previousNum = "",
@@ -70,6 +71,18 @@ function clearEntry() {
   }
 }
 
+function removeChar() {
+  if (currentNum !== "") {
+    currentNum = currentNum.slice(0, -1);
+    viewer_result.innerHTML = currentNum;
+  } else {
+    previousNum = previousNum.slice(0, -1);
+    viewer_accumulator.innerHTML = previousNum;
+  }
+}
+
+// Add click event to stuff
+
 // Add click event to numbers
 for (var i = 0, l = calc_nums.length; i < l; i++) {
   calc_nums[i].onclick = setNum;
@@ -88,3 +101,6 @@ calc_clear_entry.onclick = clearEntry;
 
 // Add click event to equal sign
 calc_equals.onclick = calculateResult;
+
+// Add click event to backspace
+calc_backspace.onclick = removeChar;
