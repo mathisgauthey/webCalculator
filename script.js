@@ -61,7 +61,6 @@ function clear() {
 }
 
 function clearEntry() {
-  console.log("worked");
   if (operators.includes(previousNum)) {
     previousNum = "";
     viewer_accumulator.innerHTML = "0";
