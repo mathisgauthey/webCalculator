@@ -17,10 +17,27 @@ function setNum() {
   result.innerHTML = currentNum; // Display current number
 }
 
-  viewer.innerHTML = currentNum; // Display current number
+function isOperator(char) {
+  const operators = ["+", "-", "*", "/"];
+  return operators.includes(char);
 }
 
 function operationSelection() {
+  if (
+    isOperator(previousNum.charAt(previousNum.length - 1)) &&
+    currentNum === ""
+  ) {
+    previousNum = previousNum.slice(0, -1) + this.innerHTML;
+    viewer_accumulator.innerHTML = previousNum;
+  } else {
+    previousNum += currentNum;
+    currentNum = "";
+    previousNum += this.innerHTML;
+    viewer_accumulator.innerHTML = previousNum;
+    viewer_result.innerHTML = "";
+  }
+}
+
   previousNum += currentNum;
   currentNum = "";
   viewer_accumulator.innerHTML = previousNum;
