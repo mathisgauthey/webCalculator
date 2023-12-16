@@ -1,6 +1,6 @@
 // Calculator elements
-var viewer_accumulator = document.querySelector("#accumulator"),
-  viewer_result = document.querySelector("#result"),
+var viewer_accumulator = document.querySelector("#accumulator"), // Viewer for previous number
+  viewer_result = document.querySelector("#result"), // Viewer for current number
   calc_nums = document.querySelectorAll(".num"), // List of numbers
   calc_ops = document.querySelectorAll(".ops"), // List of operators
   calc_equals = document.getElementById("equals"), // Equal button
