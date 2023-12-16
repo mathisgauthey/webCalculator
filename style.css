@@ -16,7 +16,7 @@ h1 {
 .calculator {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+  max-width: 300px;
   margin: 0 auto;
 }
 
