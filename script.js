@@ -4,7 +4,8 @@ var viewer_accumulator = document.querySelector("#accumulator"), // Viewer for p
   calc_nums = document.querySelectorAll(".num"), // List of numbers
   calc_ops = document.querySelectorAll(".ops"), // List of operators
   calc_equals = document.getElementById("equals"), // Equal button
-  calc_clear = document.getElementById("clear"); // Clear button
+  calc_clear = document.getElementById("clear"), // Clear button
+  calc_clear_entry = document.getElementById("clear_entry"); // Clear entry button
 
 //Variables
 var previousNum = "",
@@ -59,6 +60,17 @@ function clear() {
   viewer_result.innerHTML = "0";
 }
 
+function clearEntry() {
+  console.log("worked");
+  if (operators.includes(previousNum)) {
+    previousNum = "";
+    viewer_accumulator.innerHTML = "0";
+  } else {
+    currentNum = "";
+    viewer_result.innerHTML = "";
+  }
+}
+
 // Add click event to numbers
 for (var i = 0, l = calc_nums.length; i < l; i++) {
   calc_nums[i].onclick = setNum;
@@ -71,6 +83,9 @@ for (var i = 0, l = calc_ops.length; i < l; i++) {
 
 // Add click event to clear
 calc_clear.onclick = clear;
+
+// Add click event to clear entry
+calc_clear_entry.onclick = clearEntry;
 
 // Add click event to equal sign
 calc_equals.onclick = calculateResult;
