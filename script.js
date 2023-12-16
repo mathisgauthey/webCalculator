@@ -38,10 +38,14 @@ function operationSelection() {
   }
 }
 
+function calculateResult() {
   previousNum += currentNum;
   currentNum = "";
+  resultNum = eval(previousNum);
+  previousNum += "=";
   viewer_accumulator.innerHTML = previousNum;
   viewer_result.innerHTML = resultNum;
+  previousNum = "";
 }
 
 function clear() {
