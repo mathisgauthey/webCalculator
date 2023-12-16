@@ -1,52 +1,30 @@
-// Variables
-var viewer = document.querySelector("#viewer"), // Calculator screen where result is displayed
-  equals = document.querySelector("#equals"), // Equal button
-  nums = document.querySelectorAll(".num"), // List of numbers
-  ops = document.querySelectorAll(".ops"), // List of operators
+// Calculator elements
+var viewer_accumulator = document.querySelector("#accumulator"),
+  viewer_result = document.querySelector("#result"),
+  calc_nums = document.querySelectorAll(".num"), // List of numbers
+  calc_ops = document.querySelectorAll(".ops"), // List of operators
+  calc_equals = document.getElementById("equals"), // Equal button
+  calc_clear = document.getElementById("clear"); // Clear button
+
+//Variables
+var previousNum = "",
   currentNum = "",
-  previousNum = "",
-  resultNum,
-  operator;
+  resultNum;
 
 // Clicking on number for selecting them
 function setNum() {
   currentNum += this.getAttribute("data-num"); // Add digits to previous number
+  result.innerHTML = currentNum; // Display current number
+}
 
   viewer.innerHTML = currentNum; // Display current number
 }
 
 function operationSelection() {
-  previousNum = currentNum;
+  previousNum += currentNum;
   currentNum = "";
-  operator = this.getAttribute("data-ops");
-}
-
-function displayResult() {
-  previousNum = parseFloat(previousNum);
-  currentNum = parseFloat(currentNum);
-
-  switch (operator) {
-    case "plus":
-      resultNum = previousNum + currentNum;
-      break;
-
-    case "minus":
-      resultNum = previousNum - currentNum;
-      break;
-
-    case "times":
-      resultNum = previousNum * currentNum;
-      break;
-
-    case "divided by":
-      resultNum = previousNum / currentNum;
-      break;
-
-    default:
-      resultNum = currentNum;
-  }
-
-  viewer.innerHTML = resultNum;
+  viewer_accumulator.innerHTML = previousNum;
+  viewer_result.innerHTML = resultNum;
 }
 
 function clear() {
@@ -54,21 +32,22 @@ function clear() {
   previousNum = "";
   resultNum = "";
   operator = "";
-  viewer.innerHTML = "0";
+  viewer_accumulator.innerHTML = "";
+  viewer_result.innerHTML = "0";
 }
 
 // Add click event to numbers
-for (var i = 0, l = nums.length; i < l; i++) {
-  nums[i].onclick = setNum;
+for (var i = 0, l = calc_nums.length; i < l; i++) {
+  calc_nums[i].onclick = setNum;
 }
 
 // Add click event to operators
-for (var i = 0, l = ops.length; i < l; i++) {
-  ops[i].onclick = operationSelection;
+for (var i = 0, l = calc_ops.length; i < l; i++) {
+  calc_ops[i].onclick = operationSelection;
 }
 
 // Add click event to clear
-document.querySelector("#clear").onclick = clear;
+calc_clear.onclick = clear;
 
 // Add click event to equal sign
-equals.onclick = displayResult;
+calc_equals.onclick = calculateResult;
