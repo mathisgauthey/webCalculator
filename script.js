@@ -13,6 +13,9 @@ var previousNum = "",
 
 // Clicking on number for selecting them
 function setNum() {
+  if (previousNum.charAt(previousNum.length - 1) === "=") {
+    clear();
+  }
   currentNum += this.getAttribute("data-num"); // Add digits to previous number
   result.innerHTML = currentNum; // Display current number
 }
@@ -45,7 +48,6 @@ function calculateResult() {
   previousNum += "=";
   viewer_accumulator.innerHTML = previousNum;
   viewer_result.innerHTML = resultNum;
-  previousNum = "";
 }
 
 function clear() {
