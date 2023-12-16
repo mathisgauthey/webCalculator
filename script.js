@@ -11,6 +11,8 @@ var previousNum = "",
   currentNum = "",
   resultNum;
 
+const operators = ["+", "-", "*", "/"];
+
 // Clicking on number for selecting them
 function setNum() {
   if (previousNum.charAt(previousNum.length - 1) === "=") {
@@ -21,7 +23,6 @@ function setNum() {
 }
 
 function isOperator(char) {
-  const operators = ["+", "-", "*", "/"];
   return operators.includes(char);
 }
 
@@ -54,7 +55,6 @@ function clear() {
   currentNum = "";
   previousNum = "";
   resultNum = "";
-  operator = "";
   viewer_accumulator.innerHTML = "";
   viewer_result.innerHTML = "0";
 }
