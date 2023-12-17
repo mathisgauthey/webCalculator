@@ -17,68 +17,79 @@ const operators = ["+", "-", "*", "/"];
 
 // Clicking on number for selecting them
 function setNum() {
+  // If there was a result displayed, clear everything before continuing
   if (previousNum.charAt(previousNum.length - 1) === "=") {
     clear();
   }
-  currentNum += this.getAttribute("data-num"); // Add digits to previous number
+  // Add a new member to the current number and display it
+  if (currentNum === "0") {
+    currentNum = this.getAttribute("data-num"); // Replace 0 with the first digit
+  } else {
+    currentNum += this.getAttribute("data-num"); // Add digits to previous number
+  }
   result.innerHTML = currentNum; // Display current number
 }
 
+// Verify if a character is an operator
 function isOperator(char) {
   return operators.includes(char);
 }
 
 function operationSelection() {
+  // If the accumulator has an operator for last character and the current number is empty, replace the operator with the new one
   if (
     isOperator(previousNum.charAt(previousNum.length - 1)) &&
     currentNum === ""
   ) {
     previousNum = previousNum.slice(0, -1) + this.innerHTML;
     viewer_accumulator.innerHTML = previousNum;
-  } else {
-    previousNum += currentNum;
-    currentNum = "";
-    previousNum += this.innerHTML;
+  }
+  // Else, if the accumulator has an operator for last character and the current number is not empty, calculate the result and add the new operator
+  else {
+    previousNum += currentNum; // Add the current number
+    currentNum = ""; // Reset the current number
+    previousNum += this.innerHTML; // Add the operator
+    // Update display
     viewer_accumulator.innerHTML = previousNum;
-    viewer_result.innerHTML = "";
+    viewer_result.innerHTML = currentNum;
   }
 }
 
 function calculateResult() {
+  // Calculation
   previousNum += currentNum;
-  currentNum = "";
   resultNum = eval(previousNum);
+  // Prepare for result display
+  currentNum = "";
   previousNum += "=";
+  // Display result
   viewer_accumulator.innerHTML = previousNum;
   viewer_result.innerHTML = resultNum;
 }
 
+// Clear everything and reset default calculator state
 function clear() {
-  currentNum = "";
+  // Clear variables
   previousNum = "";
+  currentNum = "0";
   resultNum = "";
-  viewer_accumulator.innerHTML = "";
-  viewer_result.innerHTML = "0";
+  // Clear display
+  viewer_accumulator.innerHTML = previousNum;
+  viewer_result.innerHTML = currentNum;
 }
 
+// Clear the current entry only
 function clearEntry() {
-  if (operators.includes(previousNum)) {
-    previousNum = "";
-    viewer_accumulator.innerHTML = "0";
-  } else {
-    currentNum = "";
-    viewer_result.innerHTML = "";
-  }
+  currentNum = "0";
+  viewer_result.innerHTML = currentNum;
 }
 
 function removeChar() {
-  if (currentNum !== "") {
-    currentNum = currentNum.slice(0, -1);
-    viewer_result.innerHTML = currentNum;
-  } else {
-    previousNum = previousNum.slice(0, -1);
-    viewer_accumulator.innerHTML = previousNum;
+  currentNum = currentNum.slice(0, -1);
+  if (currentNum === "") {
+    currentNum = "0";
   }
+  viewer_result.innerHTML = currentNum;
 }
 
 // Add click event to stuff
