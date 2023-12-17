@@ -7,7 +7,8 @@ var viewer_accumulator = document.querySelector("#accumulator"), // Viewer for p
   calc_clear = document.getElementById("clear"), // Clear button
   calc_clear_entry = document.getElementById("clear_entry"), // Clear entry button
   calc_backspace = document.getElementById("backspace"), // Backspace button
-  calc_inverse = document.getElementById("inverse"); // Inverse button
+  calc_inverse = document.getElementById("inverse"), // Inverse button
+  calc_square = document.getElementById("square"); // Square button
 
 //Variables
 var previousNum = "",
@@ -101,6 +102,11 @@ function inverseNum() {
   viewer_result.innerHTML = currentNum;
 }
 
+function squareNum() {
+  currentNum = currentNum * currentNum;
+  viewer_result.innerHTML = currentNum;
+}
+
 // Add click event to stuff
 
 // Add click event to numbers
@@ -127,3 +133,6 @@ calc_backspace.onclick = removeChar;
 
 // Add click event to inverse
 calc_inverse.onclick = inverseNum;
+
+// Add click event to square
+calc_square.onclick = squareNum;
