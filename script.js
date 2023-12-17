@@ -6,7 +6,8 @@ var viewer_accumulator = document.querySelector("#accumulator"), // Viewer for p
   calc_equals = document.getElementById("equals"), // Equal button
   calc_clear = document.getElementById("clear"), // Clear button
   calc_clear_entry = document.getElementById("clear_entry"), // Clear entry button
-  calc_backspace = document.getElementById("backspace"); // Backspace button
+  calc_backspace = document.getElementById("backspace"), // Backspace button
+  calc_inverse = document.getElementById("inverse"); // Inverse button
 
 //Variables
 var previousNum = "",
@@ -95,6 +96,11 @@ function removeChar() {
   viewer_result.innerHTML = currentNum;
 }
 
+function inverseNum() {
+  currentNum = 1 / currentNum;
+  viewer_result.innerHTML = currentNum;
+}
+
 // Add click event to stuff
 
 // Add click event to numbers
@@ -118,3 +124,6 @@ calc_equals.onclick = calculateResult;
 
 // Add click event to backspace
 calc_backspace.onclick = removeChar;
+
+// Add click event to inverse
+calc_inverse.onclick = inverseNum;
