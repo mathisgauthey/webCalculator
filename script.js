@@ -10,7 +10,8 @@ var viewer_accumulator = document.querySelector("#accumulator"), // Viewer for p
   calc_inverse = document.getElementById("inverse"), // Inverse button
   calc_square = document.getElementById("square"), // Square button
   calc_sqrt = document.getElementById("sqrt"), // Square root button
-  calc_percentage = document.getElementById("percentage"); // Percentage button
+  calc_percentage = document.getElementById("percentage"), // Percentage button
+  calc_plus_minus = document.getElementById("plus_minus"); // Plus minus button
 
 //Variables
 var previousNum = "",
@@ -128,6 +129,11 @@ function percentageNum() {
   viewer_result.innerHTML = currentNum;
 }
 
+function switchNum() {
+  currentNum = -currentNum;
+  viewer_result.innerHTML = currentNum;
+}
+
 // Add click event to stuff
 
 // Add click event to numbers
@@ -163,3 +169,6 @@ calc_sqrt.onclick = sqrtNum;
 
 // Add click event to percentage
 calc_percentage.onclick = percentageNum;
+
+// Add click event to plus minus
+calc_plus_minus.onclick = switchNum;
