@@ -21,8 +21,11 @@ function setNum() {
   if (previousNum.charAt(previousNum.length - 1) === "=") {
     clear();
   }
+  if (this.getAttribute("data-num") === ".") {
+    currentNum += this.getAttribute("data-num");
+  }
   // Add a new member to the current number and display it
-  if (currentNum === "0") {
+  else if (currentNum === "0") {
     currentNum = this.getAttribute("data-num"); // Replace 0 with the first digit
   } else {
     currentNum += this.getAttribute("data-num"); // Add digits to previous number
