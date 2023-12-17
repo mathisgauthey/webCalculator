@@ -9,7 +9,8 @@ var viewer_accumulator = document.querySelector("#accumulator"), // Viewer for p
   calc_backspace = document.getElementById("backspace"), // Backspace button
   calc_inverse = document.getElementById("inverse"), // Inverse button
   calc_square = document.getElementById("square"), // Square button
-  calc_sqrt = document.getElementById("sqrt"); // Square root button
+  calc_sqrt = document.getElementById("sqrt"), // Square root button
+  calc_percentage = document.getElementById("percentage"); // Percentage button
 
 //Variables
 var previousNum = "",
@@ -113,6 +114,20 @@ function sqrtNum() {
   viewer_result.innerHTML = currentNum;
 }
 
+function percentageNum() {
+  if (!isOperator(previousNum.charAt(previousNum.length - 1))) {
+    return;
+  }
+  operator = previousNum.charAt(previousNum.length - 1);
+  previousNum = previousNum.slice(0, -1);
+  currentNum = eval(previousNum) * (currentNum / 100);
+  previousNum += operator;
+  previousNum += currentNum;
+  currentNum = "";
+  viewer_accumulator.innerHTML = previousNum;
+  viewer_result.innerHTML = currentNum;
+}
+
 // Add click event to stuff
 
 // Add click event to numbers
@@ -145,3 +160,6 @@ calc_square.onclick = squareNum;
 
 // Add click event to square root
 calc_sqrt.onclick = sqrtNum;
+
+// Add click event to percentage
+calc_percentage.onclick = percentageNum;
