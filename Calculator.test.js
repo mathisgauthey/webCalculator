@@ -180,6 +180,17 @@ test("inverse should not inverse the current number if current number is 0", () 
   expect(calculator.currentNum).toBe("0");
 });
 
+test("square should square the current number", () => {
+  // Given
+  calculator.currentNum = "2";
+
+  // When
+  calculator.square();
+
+  // Then
+  expect(calculator.currentNum).toBe("4");
+});
+
 test("equals should calculate the result of the operation in accumulatorNum and put it in currentNum", () => {
   // Given
   calculator.accumulatorNum = "66+";

@@ -64,6 +64,10 @@ class Calculator {
     }
   }
 
+  square() {
+    this.currentNum = String(this.currentNum * this.currentNum);
+  }
+
   equals() {
     if (
       this.isOperator(
