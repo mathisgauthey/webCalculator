@@ -23,6 +23,11 @@ class Calculator {
     }
   }
 
+  isOperator(char) {
+    const operators = ["+", "-", "*", "/"];
+    return operators.includes(char); // True if char is an operator
+  }
+
   updateViewer() {
     viewer_accumulator.innerHTML = this.accumulatorNum;
     viewer_current.innerHTML = this.currentNum;
