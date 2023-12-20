@@ -85,7 +85,7 @@ class Calculator {
     } else if (
       this.accumulatorNum.charAt(this.accumulatorNum.length - 1) === "="
     ) {
-      const pattern = /[\-\+\*\/]\d+(?=[^\-\+\*\/]*$)/;
+      const pattern = /[-+*/]\d+(?=[^-+*/]*$)/;
       let lastOp = this.accumulatorNum.match(pattern);
       console.log(lastOp);
       this.accumulatorNum = this.accumulatorNum.slice(0, -1);
