@@ -14,8 +14,10 @@ class Calculator {
   }
 
   appendNum(num) {
-    if (this.currentNum === "0") {
+    if (this.currentNum === "0" && num !== ".") {
       this.currentNum = num;
+    } else if (num === "." && this.currentNum.includes(".")) {
+      return;
     } else {
       this.currentNum += num;
     }
