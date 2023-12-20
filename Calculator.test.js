@@ -173,3 +173,27 @@ test("spamming equals should keep executing the last currentNum action with accu
   expect(calculator.accumulatorNum).toBe("5+5+5+5=");
   expect(calculator.currentNum).toBe("20");
 });
+
+test("clearEntry should clear currentNum to 0 if there is no accumulator", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "66";
+
+  // When
+  calculator.clearEntry();
+
+  // Then
+  expect(calculator.currentNum).toBe("0");
+});
+
+test("clearEntry should clear currentNum to empty string if there is an accumulator", () => {
+  // Given
+  calculator.accumulatorNum = "55+";
+  calculator.currentNum = "66";
+
+  // When
+  calculator.clearEntry();
+
+  // Then
+  expect(calculator.currentNum).toBe("");
+});
