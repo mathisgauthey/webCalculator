@@ -158,3 +158,18 @@ test("equals should not work if accumulatorNum ends with an operator and current
   expect(calculator.accumulatorNum).toBe("66+5+");
   expect(calculator.currentNum).toBe("");
 });
+
+test("spamming equals should keep executing the last currentNum action with accumulatorNum last operator", () => {
+  // Given
+  calculator.accumulatorNum = "5+";
+  calculator.currentNum = "5";
+
+  // When
+  calculator.equals();
+  calculator.equals();
+  calculator.equals();
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("5+5+5+5=");
+  expect(calculator.currentNum).toBe("20");
+});
