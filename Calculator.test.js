@@ -28,6 +28,30 @@ test("clear should set currentNum to 0", () => {
   expect(calculator.currentNum).toBe("0");
 });
 
+test("clearEntry should clear currentNum to 0 if there is no accumulator", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "66";
+
+  // When
+  calculator.clearEntry();
+
+  // Then
+  expect(calculator.currentNum).toBe("0");
+});
+
+test("clearEntry should clear currentNum to empty string if there is an accumulator", () => {
+  // Given
+  calculator.accumulatorNum = "55+";
+  calculator.currentNum = "66";
+
+  // When
+  calculator.clearEntry();
+
+  // Then
+  expect(calculator.currentNum).toBe("");
+});
+
 test("appendNum should append a number to currentNum string", () => {
   // Given
   calculator.currentNum = "66";
