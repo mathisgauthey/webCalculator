@@ -2,10 +2,11 @@ const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for
   viewer_current = document.querySelector("#current"), // Viewer for current number
   calc_clear = document.getElementById("clear"), // Clear button
   calc_clear_entry = document.getElementById("clear_entry"), // Clear entry button
+  calc_backspace = document.getElementById("backspace"), // Backspace button
   calc_nums = document.querySelectorAll(".num"), // List of numbers
   calc_ops = document.querySelectorAll(".ops"), // List of operators
   calc_equals = document.getElementById("equals"); // Equal button
-// calc_backspace = document.getElementById("backspace"), // Backspace button
+
 // calc_inverse = document.getElementById("inverse"), // Inverse button
 // calc_square = document.getElementById("square"), // Square button
 // calc_sqrt = document.getElementById("sqrt"), // Square root button
@@ -21,6 +22,11 @@ calc_clear.addEventListener("click", () => {
 
 calc_clear_entry.addEventListener("click", () => {
   calculator.clearEntry();
+  calculator.updateViewer();
+});
+
+calc_backspace.addEventListener("click", () => {
+  calculator.backspace();
   calculator.updateViewer();
 });
 
