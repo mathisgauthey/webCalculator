@@ -68,6 +68,10 @@ class Calculator {
     this.currentNum = String(this.currentNum * this.currentNum);
   }
 
+  sqrt() {
+    this.currentNum = String(Math.sqrt(this.currentNum));
+  }
+
   equals() {
     if (
       this.isOperator(

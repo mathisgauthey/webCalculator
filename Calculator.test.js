@@ -191,6 +191,28 @@ test("square should square the current number", () => {
   expect(calculator.currentNum).toBe("4");
 });
 
+test("sqrt should square root the current number", () => {
+  // Given
+  calculator.currentNum = "4";
+
+  // When
+  calculator.sqrt();
+
+  // Then
+  expect(calculator.currentNum).toBe("2");
+});
+
+test("sqrt should now work if current number is negative", () => {
+  // Given
+  calculator.currentNum = "-4";
+
+  // When
+  calculator.sqrt();
+
+  // Then
+  expect(calculator.currentNum).toBe("NaN");
+});
+
 test("equals should calculate the result of the operation in accumulatorNum and put it in currentNum", () => {
   // Given
   calculator.accumulatorNum = "66+";
