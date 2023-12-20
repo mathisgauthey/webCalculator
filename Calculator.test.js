@@ -158,6 +158,28 @@ test("operatorSelect should erase existing current number if previous number alr
   expect(calculator.currentNum).toBe("");
 });
 
+test("inverse should inverse the current number", () => {
+  // Given
+  calculator.currentNum = "2";
+
+  // When
+  calculator.inverse();
+
+  // Then
+  expect(calculator.currentNum).toBe("0.5");
+});
+
+test("inverse should not inverse the current number if current number is 0", () => {
+  // Given
+  calculator.currentNum = "0";
+
+  // When
+  calculator.inverse();
+
+  // Then
+  expect(calculator.currentNum).toBe("0");
+});
+
 test("equals should calculate the result of the operation in accumulatorNum and put it in currentNum", () => {
   // Given
   calculator.accumulatorNum = "66+";

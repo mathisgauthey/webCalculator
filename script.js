@@ -5,12 +5,11 @@ const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for
   calc_backspace = document.getElementById("backspace"), // Backspace button
   calc_nums = document.querySelectorAll(".num"), // List of numbers
   calc_ops = document.querySelectorAll(".ops"), // List of operators
-  calc_equals = document.getElementById("equals"); // Equal button
-
-// calc_inverse = document.getElementById("inverse"), // Inverse button
-// calc_square = document.getElementById("square"), // Square button
-// calc_sqrt = document.getElementById("sqrt"), // Square root button
-// calc_percentage = document.getElementById("percentage"), // Percentage button
+  calc_equals = document.getElementById("equals"), // Equal button
+  calc_inverse = document.getElementById("inverse"); // Inverse button
+// calc_square = document.getElementById("square"); // Square button
+// calc_sqrt = document.getElementById("sqrt"); // Square root button
+// calc_percentage = document.getElementById("percentage"); // Percentage button
 // calc_plus_minus = document.getElementById("plus_minus"); // Plus minus button
 
 let calculator = new Calculator();
@@ -42,6 +41,11 @@ calc_ops.forEach((button) => {
     calculator.operatorSelect(button.innerHTML);
     calculator.updateViewer();
   });
+});
+
+calc_inverse.addEventListener("click", () => {
+  calculator.inverse();
+  calculator.updateViewer();
 });
 
 calc_equals.addEventListener("click", () => {

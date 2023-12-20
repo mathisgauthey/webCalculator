@@ -58,6 +58,12 @@ class Calculator {
     this.currentNum = "";
   }
 
+  inverse() {
+    if (this.currentNum !== "0") {
+      this.currentNum = String(1 / parseFloat(this.currentNum));
+    }
+  }
+
   equals() {
     if (
       this.isOperator(
