@@ -72,6 +72,21 @@ class Calculator {
     this.currentNum = String(Math.sqrt(this.currentNum));
   }
 
+  percentage() {
+    if (
+      this.isOperator(
+        this.accumulatorNum.charAt(this.accumulatorNum.length - 1)
+      )
+    ) {
+      let operator = this.accumulatorNum.charAt(this.accumulatorNum.length - 1);
+      this.accumulatorNum = this.accumulatorNum.slice(0, -1);
+      this.currentNum = String(
+        (parseFloat(this.currentNum) / 100) * eval(this.accumulatorNum)
+      );
+      this.accumulatorNum += operator;
+    }
+  }
+
   equals() {
     if (
       this.isOperator(

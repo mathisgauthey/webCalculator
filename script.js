@@ -8,8 +8,8 @@ const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for
   calc_equals = document.getElementById("equals"), // Equal button
   calc_inverse = document.getElementById("inverse"), // Inverse button
   calc_square = document.getElementById("square"), // Square button
-  calc_sqrt = document.getElementById("sqrt"); // Square root button
-// calc_percentage = document.getElementById("percentage"); // Percentage button
+  calc_sqrt = document.getElementById("sqrt"), // Square root button
+  calc_percentage = document.getElementById("percentage"); // Percentage button
 // calc_plus_minus = document.getElementById("plus_minus"); // Plus minus button
 
 let calculator = new Calculator();
@@ -55,6 +55,11 @@ calc_square.addEventListener("click", () => {
 
 calc_sqrt.addEventListener("click", () => {
   calculator.sqrt();
+  calculator.updateViewer();
+});
+
+calc_percentage.addEventListener("click", () => {
+  calculator.percentage();
   calculator.updateViewer();
 });
 

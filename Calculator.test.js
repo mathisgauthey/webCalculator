@@ -213,6 +213,18 @@ test("sqrt should now work if current number is negative", () => {
   expect(calculator.currentNum).toBe("NaN");
 });
 
+test("percentage should change the currentNum % to the percentage value of the accumulatorNum current evaluation", () => {
+  // Given
+  calculator.accumulatorNum = "50+5+";
+  calculator.currentNum = "10";
+
+  // When
+  calculator.percentage();
+
+  // Then
+  expect(calculator.currentNum).toBe("5.5");
+});
+
 test("equals should calculate the result of the operation in accumulatorNum and put it in currentNum", () => {
   // Given
   calculator.accumulatorNum = "66+";
