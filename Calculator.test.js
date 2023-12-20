@@ -225,6 +225,28 @@ test("percentage should change the currentNum % to the percentage value of the a
   expect(calculator.currentNum).toBe("5.5");
 });
 
+test("plusMinus should change currentNum as a positive to a negative value", () => {
+  // Given
+  calculator.currentNum = "6";
+
+  // When
+  calculator.plusMinus();
+
+  // Then
+  expect(calculator.currentNum).toBe("-6");
+});
+
+test("plusMinus should change currentNum as a negative to a positive value", () => {
+  // Given
+  calculator.currentNum = "-9";
+
+  // When
+  calculator.plusMinus();
+
+  // Then
+  expect(calculator.currentNum).toBe("9");
+});
+
 test("equals should calculate the result of the operation in accumulatorNum and put it in currentNum", () => {
   // Given
   calculator.accumulatorNum = "66+";

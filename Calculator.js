@@ -87,6 +87,10 @@ class Calculator {
     }
   }
 
+  plusMinus() {
+    this.currentNum = String(-1 * parseFloat(this.currentNum));
+  }
+
   equals() {
     if (
       this.isOperator(
