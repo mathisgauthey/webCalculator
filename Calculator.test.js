@@ -6,6 +6,28 @@ beforeEach(() => {
   calculator = new Calculator();
 });
 
+test("clear should set accumulatorNum to empty string", () => {
+  // Given
+  calculator.accumulatorNum = "66";
+
+  // When
+  calculator.clear();
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("");
+});
+
+test("clear should set currentNum to 0", () => {
+  // Given
+  calculator.currentNum = "66";
+
+  // When
+  calculator.clear();
+
+  // Then
+  expect(calculator.currentNum).toBe("0");
+});
+
 test("appendNum should append a number to currentNum string", () => {
   // Given
   calculator.currentNum = "66";
