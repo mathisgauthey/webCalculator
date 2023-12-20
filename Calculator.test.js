@@ -108,5 +108,53 @@ test("operatorSelect should switch operator if previous number already ends with
 
   // Then
   expect(calculator.accumulatorNum).toBe("66-");
+});
+
+test("operatorSelect should erase existing current number if previous number already ends with an operator and current number is not empty", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "55";
+
+  // When
+  calculator.operatorSelect("+");
+
+  // Then
+  expect(calculator.currentNum).toBe("");
+});
+
+test("equals should calculate the result of the operation in accumulatorNum and put it in currentNum", () => {
+  // Given
+  calculator.accumulatorNum = "66+";
+  calculator.currentNum = "4";
+
+  // When
+  calculator.equals();
+
+  // Then
+  expect(calculator.currentNum).toBe("70");
+});
+
+test("equals should append = to accumulatorNum", () => {
+  // Given
+  calculator.accumulatorNum = "66+";
+  calculator.currentNum = "4";
+
+  // When
+  calculator.equals();
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("66+4=");
+});
+
+test("equals should not work if accumulatorNum ends with an operator and current number is empty", () => {
+  // Given
+  calculator.accumulatorNum = "66+5+";
+  calculator.currentNum = "";
+
+  // When
+  calculator.equals();
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("66+5+");
   expect(calculator.currentNum).toBe("");
 });
