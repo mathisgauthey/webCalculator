@@ -13,6 +13,14 @@ class Calculator {
     this.currentNum = "0";
   }
 
+  clearEntry() {
+    if (this.accumulatorNum === "") {
+      this.currentNum = "0";
+    } else {
+      this.currentNum = "";
+    }
+  }
+
   appendNum(num) {
     if (this.currentNum === "0" && num !== ".") {
       this.currentNum = num;
