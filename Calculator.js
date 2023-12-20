@@ -28,6 +28,20 @@ class Calculator {
     return operators.includes(char); // True if char is an operator
   }
 
+  operatorSelect(operator) {
+    if (
+      this.isOperator(
+        this.accumulatorNum.charAt(this.accumulatorNum.length - 1)
+      ) &&
+      this.currentNum === ""
+    ) {
+      this.accumulatorNum = this.accumulatorNum.slice(0, -1);
+    }
+    this.accumulatorNum += this.currentNum;
+    this.accumulatorNum += operator;
+    this.currentNum = "";
+  }
+
   updateViewer() {
     viewer_accumulator.innerHTML = this.accumulatorNum;
     viewer_current.innerHTML = this.currentNum;
