@@ -42,6 +42,19 @@ class Calculator {
     this.currentNum = "";
   }
 
+  equals() {
+    if (
+      this.isOperator(
+        this.accumulatorNum.charAt(this.accumulatorNum.length - 1)
+      ) &&
+      this.currentNum !== ""
+    ) {
+      this.accumulatorNum += this.currentNum;
+      this.currentNum = String(eval(this.accumulatorNum));
+      this.accumulatorNum += "=";
+    }
+  }
+
   updateViewer() {
     viewer_accumulator.innerHTML = this.accumulatorNum;
     viewer_current.innerHTML = this.currentNum;
