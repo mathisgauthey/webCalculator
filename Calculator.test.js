@@ -71,3 +71,42 @@ test("appendNum should not append a . to current number if current number contai
   // Then
   expect(calculator.currentNum).toBe("0.");
 });
+
+test("operatorSelect should append an operator to previous number", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "66";
+
+  // When
+  calculator.operatorSelect("+");
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("66+");
+  expect(calculator.currentNum).toBe("");
+});
+
+test("operatorSelect should not append an operator to previous number if previous number already ends with an operator", () => {
+  // Given
+  calculator.accumulatorNum = "66+";
+  calculator.currentNum = "";
+
+  // When
+  calculator.operatorSelect("+");
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("66+");
+  expect(calculator.currentNum).toBe("");
+});
+
+test("operatorSelect should switch operator if previous number already ends with an operator and current number is empty", () => {
+  // Given
+  calculator.accumulatorNum = "66+";
+  calculator.currentNum = "";
+
+  // When
+  calculator.operatorSelect("-");
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("66-");
+  expect(calculator.currentNum).toBe("");
+});
