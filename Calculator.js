@@ -21,6 +21,14 @@ class Calculator {
     }
   }
 
+  backspace() {
+    if (this.currentNum === "0") {
+      return;
+    } else {
+      this.currentNum = this.currentNum.slice(0, -1);
+    }
+  }
+
   appendNum(num) {
     if (this.currentNum === "0" && num !== ".") {
       this.currentNum = num;
