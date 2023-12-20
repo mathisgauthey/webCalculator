@@ -27,3 +27,25 @@ test("appendNum should replace 0 with the number selected", () => {
   // Then
   expect(calculator.currentNum).toBe("6");
 });
+
+test("appendNum should append a . to current number if current number does not contain a .", () => {
+  // Given
+  calculator.currentNum = "0";
+
+  // When
+  calculator.appendNum(".");
+
+  // Then
+  expect(calculator.currentNum).toBe("0.");
+});
+
+test("appendNum should not append a . to current number if current number contains a .", () => {
+  // Given
+  calculator.currentNum = "0.";
+
+  // When
+  calculator.appendNum(".");
+
+  // Then
+  expect(calculator.currentNum).toBe("0.");
+});
