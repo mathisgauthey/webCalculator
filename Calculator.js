@@ -14,7 +14,11 @@ class Calculator {
   }
 
   appendNum(num) {
-    this.currentNum += num;
+    if (this.currentNum === "0") {
+      this.currentNum = num;
+    } else {
+      this.currentNum += num;
+    }
   }
 
   updateViewer() {

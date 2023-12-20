@@ -16,3 +16,14 @@ test("addNumber should append a number to currentNum string", () => {
   // Then
   expect(calculator.currentNum).toBe("666");
 });
+
+test("addNumber should replace 0 with the number selected", () => {
+  // Given
+  calculator.currentNum = "0";
+
+  // When
+  calculator.appendNum("6");
+
+  // Then
+  expect(calculator.currentNum).toBe("6");
+});
