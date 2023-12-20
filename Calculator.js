@@ -45,6 +45,7 @@ class Calculator {
   }
 
   operatorSelect(operator) {
+    // If the last character of accumulatorNum is an operator and currentNum is empty, replace it with the new operator
     if (
       this.isOperator(
         this.accumulatorNum.charAt(this.accumulatorNum.length - 1)
