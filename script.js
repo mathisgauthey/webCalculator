@@ -1,28 +1,3 @@
-class Calculator {
-  accumulatorNum;
-  currentNum;
-
-  constructor(accumulatorNum, currentNum) {
-    this.accumulatorNum = accumulatorNum;
-    this.currentNum = currentNum;
-    this.clear();
-  }
-
-  clear() {
-    this.accumulatorNum = "";
-    this.currentNum = "0";
-  }
-
-  appendNum(num) {
-    this.currentNum += num;
-  }
-
-  updateViewer() {
-    viewer_accumulator.innerHTML = this.accumulatorNum;
-    viewer_current.innerHTML = this.currentNum;
-  }
-}
-
 const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for previous number
   viewer_current = document.querySelector("#current"), // Viewer for current number
   calc_clear = document.getElementById("clear"), // Clear button
