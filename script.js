@@ -13,6 +13,7 @@ const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for
   calc_plus_minus = document.getElementById("plus_minus"); // Plus minus button
 
 let calculator = new Calculator();
+calculator.updateViewer();
 
 calc_clear.addEventListener("click", () => {
   calculator.clear();
