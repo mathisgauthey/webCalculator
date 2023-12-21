@@ -123,12 +123,13 @@ class Calculator {
       this.accumulatorNum += this.currentNum;
       this.currentNum = String(eval(this.accumulatorNum));
       this.accumulatorNum += "=";
-    } else if (
+    }
+    // Else, if the last character of accumulatorNum is an equal, reperform the last operation another time
+    else if (
       this.accumulatorNum.charAt(this.accumulatorNum.length - 1) === "="
     ) {
       const pattern = /[-+*/]\d+(?=[^-+*/]*$)/;
       let lastOp = this.accumulatorNum.match(pattern);
-      console.log(lastOp);
       this.accumulatorNum = this.accumulatorNum.slice(0, -1);
       this.accumulatorNum += lastOp;
       this.currentNum = String(eval(this.accumulatorNum));
