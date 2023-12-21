@@ -119,8 +119,8 @@ class Calculator {
   }
 
   updateViewer() {
-    viewer_accumulator.innerHTML = this.accumulatorNum;
-    viewer_current.innerHTML = this.currentNum;
+    viewer_accumulator.innerText = this.accumulatorNum;
+    viewer_current.innerText = this.currentNum;
   }
 }
 module.exports = Calculator;

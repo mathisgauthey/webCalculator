@@ -32,14 +32,14 @@ calc_backspace.addEventListener("click", () => {
 
 calc_nums.forEach((button) => {
   button.addEventListener("click", () => {
-    calculator.appendNum(button.innerHTML);
+    calculator.appendNum(button.innerText);
     calculator.updateViewer();
   });
 });
 
 calc_ops.forEach((button) => {
   button.addEventListener("click", () => {
-    calculator.operatorSelect(button.innerHTML);
+    calculator.operatorSelect(button.innerText);
     calculator.updateViewer();
   });
 });
