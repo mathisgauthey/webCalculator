@@ -70,6 +70,8 @@ class Calculator {
     ) {
       this.accumulatorNum = this.accumulatorNum.slice(0, -1);
     }
+    // If the last character of accumulatorNum is an equal, clear it so that
+    // it will be replaced by the result and the new operator
     if (this.accumulatorNum.charAt(this.accumulatorNum.length - 1) === "=") {
       this.accumulatorNum = "";
     }
