@@ -108,6 +108,18 @@ test("appendNum should not append a . to current number if current number contai
   expect(calculator.currentNum).toBe("0.");
 });
 
+test("appendNum should reset currentNum after a calculation was done using equals", () => {
+  // Given
+  calculator.accumulatorNum = "66+4=";
+  calculator.currentNum = "70";
+
+  // When
+  calculator.appendNum("5");
+
+  // Then
+  expect(calculator.currentNum).toBe("5");
+});
+
 test("operatorSelect should append an operator to previous number", () => {
   // Given
   calculator.accumulatorNum = "";

@@ -30,11 +30,27 @@ class Calculator {
   }
 
   appendNum(num) {
+    // If the currentNum is 0 and num is not a dot, replace it with num
     if (this.currentNum === "0" && num !== ".") {
       this.currentNum = num;
-    } else if (num === "." && this.currentNum.includes(".")) {
+    }
+    // If num is a dot and currentNum already contains a dot, do nothing
+    else if (num === "." && this.currentNum.includes(".")) {
       return;
-    } else {
+    }
+    // If an equals() was just called, clear the accumulatorNum and replace currentNum with num
+    else if (
+      this.accumulatorNum.charAt(this.accumulatorNum.length - 1) === "="
+    ) {
+      if (num !== ".") {
+        this.accumulatorNum = "";
+        this.currentNum = num;
+      } else {
+        return;
+      }
+    }
+    // In every other cases, append num to currentNum
+    else {
       this.currentNum += num;
     }
   }
