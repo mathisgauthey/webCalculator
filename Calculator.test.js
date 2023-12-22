@@ -328,6 +328,17 @@ test("plusMinus should change currentNum as a negative to a positive value", () 
   expect(calculator.currentNum).toBe("9");
 });
 
+test("plusMinus should not change currentNum if currentNum is empty", () => {
+  // Given
+  calculator.currentNum = "";
+
+  // When
+  calculator.plusMinus();
+
+  // Then
+  expect(calculator.currentNum).toBe("");
+});
+
 test("equals should calculate the result of the operation in accumulatorNum and put it in currentNum", () => {
   // Given
   calculator.accumulatorNum = "66+";

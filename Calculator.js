@@ -115,7 +115,9 @@ class Calculator {
   }
 
   plusMinus() {
-    this.currentNum = String(-1 * parseFloat(this.currentNum));
+    if (this.currentNum !== "") {
+      this.currentNum = String(-1 * parseFloat(this.currentNum));
+    }
   }
 
   equals() {
