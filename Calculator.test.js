@@ -228,6 +228,17 @@ test("inverse should not inverse the current number if current number is 0", () 
   expect(calculator.currentNum).toBe("0");
 });
 
+test("inverse should not inverse the current number if current number is empty", () => {
+  // Given
+  calculator.currentNum = "";
+
+  // When
+  calculator.inverse();
+
+  // Then
+  expect(calculator.currentNum).toBe("");
+});
+
 test("square should square the current number", () => {
   // Given
   calculator.currentNum = "2";
@@ -237,6 +248,17 @@ test("square should square the current number", () => {
 
   // Then
   expect(calculator.currentNum).toBe("4");
+});
+
+test("square should not square the current number if current number is empty", () => {
+  // Given
+  calculator.currentNum = "";
+
+  // When
+  calculator.square();
+
+  // Then
+  expect(calculator.currentNum).toBe("");
 });
 
 test("sqrt should square root the current number", () => {
@@ -259,6 +281,17 @@ test("sqrt should now work if current number is negative", () => {
 
   // Then
   expect(calculator.currentNum).toBe("NaN");
+});
+
+test("sqrt should not square the current number if current number is empty", () => {
+  // Given
+  calculator.currentNum = "";
+
+  // When
+  calculator.sqrt();
+
+  // Then
+  expect(calculator.currentNum).toBe("");
 });
 
 test("percentage should change the currentNum % to the percentage value of the accumulatorNum current evaluation", () => {

@@ -88,11 +88,15 @@ class Calculator {
   }
 
   square() {
-    this.currentNum = String(this.currentNum * this.currentNum);
+    if (this.currentNum !== "") {
+      this.currentNum = String(this.currentNum * this.currentNum);
+    }
   }
 
   sqrt() {
-    this.currentNum = String(Math.sqrt(this.currentNum));
+    if (this.currentNum !== "") {
+      this.currentNum = String(Math.sqrt(this.currentNum));
+    }
   }
 
   percentage() {
