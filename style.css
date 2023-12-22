@@ -31,6 +31,24 @@ h1 {
   color: #c5c5c5;
   font-size: 1.5em;
   margin: 2%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 96%;
+}
+
+.accumulator::-webkit-scrollbar,
+.output::-webkit-scrollbar {
+  width: 19.2rem;
+  height: 0.2rem;
+}
+::-webkit-scrollbar-track {
+  background: black;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a6a6a6;
 }
 
 .current {

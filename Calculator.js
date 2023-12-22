@@ -42,7 +42,7 @@ class Calculator {
       ) {
         this.accumulatorNum = "";
         this.currentNum = num;
-      } else {
+      } else if (this.currentNum.length < 16) {
         this.currentNum += num;
       }
     } else if (!this.currentNum.includes(".")) {
@@ -110,7 +110,7 @@ class Calculator {
       let operator = this.accumulatorNum.charAt(this.accumulatorNum.length - 1);
       this.accumulatorNum = this.accumulatorNum.slice(0, -1);
       this.currentNum = String(
-        (parseFloat(this.currentNum) / 100) * eval(this.accumulatorNum)
+        (parseFloat(this.currentNum) / 100) * math.evaluate(this.accumulatorNum)
       );
       this.accumulatorNum += operator;
     }
@@ -138,7 +138,7 @@ class Calculator {
       this.currentNum !== ""
     ) {
       this.accumulatorNum += this.currentNum;
-      this.currentNum = String(eval(this.accumulatorNum));
+      this.currentNum = String(math.evaluate(this.accumulatorNum));
       this.accumulatorNum += "=";
     }
     // Else, if the last character of accumulatorNum is an equal, reperform the last operation another time
@@ -149,13 +149,14 @@ class Calculator {
       let lastOp = this.accumulatorNum.match(pattern);
       this.accumulatorNum = this.currentNum;
       this.accumulatorNum += lastOp;
-      this.currentNum = String(eval(this.accumulatorNum));
+      this.currentNum = String(math.evaluate(this.accumulatorNum));
       this.accumulatorNum += "=";
     }
   }
 
   updateViewer() {
     viewer_accumulator.innerText = this.accumulatorNum;
+    viewer_accumulator.scrollLeft = viewer_accumulator.scrollWidth;
     viewer_current.innerText = this.currentNum;
   }
 }

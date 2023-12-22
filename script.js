@@ -1,3 +1,8 @@
+math.config({
+  number: "BigNumber",
+  precision: 16,
+});
+
 const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for previous number
   viewer_current = document.querySelector("#current"), // Viewer for current number
   calc_clear = document.getElementById("clear"), // Clear button
