@@ -26,6 +26,8 @@ class Calculator {
       return;
     } else if (this.accumulatorNum === "" && this.currentNum.length === 1) {
       this.currentNum = "0";
+    } else if (this.currentNum === "NaN") {
+      this.currentNum = "0";
     } else {
       this.currentNum = this.currentNum.slice(0, -1);
     }

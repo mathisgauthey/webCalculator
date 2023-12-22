@@ -76,6 +76,18 @@ test("backspace should not remove the last character of currentNum if currentNum
   expect(calculator.currentNum).toBe("0");
 });
 
+test("backspace should reset to 0 if currentNum is NaN", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "NaN";
+
+  // When
+  calculator.backspace();
+
+  // Then
+  expect(calculator.currentNum).toBe("0");
+});
+
 test("appendNum should append a number to currentNum string", () => {
   // Given
   calculator.currentNum = "66";
