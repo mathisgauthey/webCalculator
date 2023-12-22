@@ -42,7 +42,7 @@ class Calculator {
       ) {
         this.accumulatorNum = "";
         this.currentNum = num;
-      } else {
+      } else if (this.currentNum.length < 16) {
         this.currentNum += num;
       }
     } else if (!this.currentNum.includes(".")) {
