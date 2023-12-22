@@ -127,7 +127,7 @@ class Calculator {
         console.log("Here we go");
         this.currentNum = this.currentNum.substring(1);
       } else {
-        this.currentNum = "(" + String(-1 * parseFloat(this.currentNum)) + ")";
+        this.currentNum = "(-" + this.currentNum + ")";
       }
     }
   }
