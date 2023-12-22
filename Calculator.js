@@ -73,6 +73,9 @@ class Calculator {
     if (this.accumulatorNum.charAt(this.accumulatorNum.length - 1) === "=") {
       this.accumulatorNum = "";
     }
+    if (this.currentNum.charAt(this.currentNum.length - 1) === ".") {
+      this.currentNum = this.currentNum.slice(0, -1);
+    }
     this.accumulatorNum += this.currentNum;
     this.accumulatorNum += operator;
     this.currentNum = "";

@@ -194,6 +194,18 @@ test("operatorSelect should permet continuing a calculation after hiting equal b
   expect(calculator.accumulatorNum).toBe("71-");
 });
 
+test("operatorSelect should remove the . from currentNum if currentNum ends with a .", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "66.";
+
+  // When
+  calculator.operatorSelect("+");
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("66+");
+});
+
 test("inverse should inverse the current number", () => {
   // Given
   calculator.currentNum = "2";
