@@ -1,6 +1,7 @@
 math.config({
   number: "BigNumber",
   precision: 16,
+  predictable: true,
 });
 
 const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for previous number

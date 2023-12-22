@@ -85,19 +85,19 @@ class Calculator {
 
   inverse() {
     if (this.currentNum !== "0" && this.currentNum !== "") {
-      this.currentNum = String(1 / parseFloat(this.currentNum));
+      this.currentNum = String(math.inv(this.currentNum));
     }
   }
 
   square() {
     if (this.currentNum !== "") {
-      this.currentNum = String(this.currentNum * this.currentNum);
+      this.currentNum = String(math.square(this.currentNum));
     }
   }
 
   sqrt() {
     if (this.currentNum !== "") {
-      this.currentNum = String(Math.sqrt(this.currentNum));
+      this.currentNum = String(math.sqrt(this.currentNum));
     }
   }
 
@@ -110,7 +110,9 @@ class Calculator {
       let operator = this.accumulatorNum.charAt(this.accumulatorNum.length - 1);
       this.accumulatorNum = this.accumulatorNum.slice(0, -1);
       this.currentNum = String(
-        (parseFloat(this.currentNum) / 100) * math.evaluate(this.accumulatorNum)
+        math.evaluate(
+          this.currentNum + "/100*" + math.evaluate(this.accumulatorNum)
+        )
       );
       this.accumulatorNum += operator;
     }

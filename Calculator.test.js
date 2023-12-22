@@ -4,6 +4,7 @@ const Calculator = require("./Calculator");
 math.config({
   number: "BigNumber",
   precision: 16,
+  predictable: true,
 });
 
 let calculator;
