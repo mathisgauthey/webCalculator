@@ -1,3 +1,4 @@
+global.math = require("./math.js");
 const Calculator = require("./Calculator");
 
 let calculator;
