@@ -37,6 +37,26 @@ calc_nums.forEach((button) => {
   });
 });
 
+// Add event listener on keydown
+document.addEventListener("keydown", (event) => {
+  if (calculator.isNum(event.key)) {
+    calculator.appendNum(event.key);
+  } else if (calculator.isOperator(event.key)) {
+    calculator.operatorSelect(event.key);
+  } else if (event.key === "Enter" || event.key === "=") {
+    calculator.equals();
+  } else if (event.key === "Backspace") {
+    calculator.backspace();
+  } else if (event.key === "²") {
+    calculator.square();
+  } else if (event.key === "%") {
+    calculator.percentage();
+  } else {
+    return;
+  }
+  calculator.updateViewer();
+});
+
 calc_ops.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.operatorSelect(button.innerText);

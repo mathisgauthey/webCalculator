@@ -60,6 +60,11 @@ class Calculator {
     return operators.includes(char); // True if char is an operator
   }
 
+  isNum(char) {
+    const nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
+    return nums.includes(char); // True if char is a number
+  }
+
   operatorSelect(operator) {
     // If the last character of accumulatorNum is an operator and currentNum is empty, replace it with the new operator
     if (
