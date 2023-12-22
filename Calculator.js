@@ -135,7 +135,7 @@ class Calculator {
     ) {
       const pattern = /[-+*/]\d+(?=[^-+*/]*$)/;
       let lastOp = this.accumulatorNum.match(pattern);
-      this.accumulatorNum = this.accumulatorNum.slice(0, -1);
+      this.accumulatorNum = this.currentNum;
       this.accumulatorNum += lastOp;
       this.currentNum = String(eval(this.accumulatorNum));
       this.accumulatorNum += "=";
