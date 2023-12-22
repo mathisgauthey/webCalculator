@@ -13,6 +13,7 @@ const viewer_accumulator = document.querySelector("#accumulator"), // Viewer for
   calc_plus_minus = document.getElementById("plus_minus"); // Plus minus button
 
 let calculator = new Calculator();
+calculator.updateViewer();
 
 calc_clear.addEventListener("click", () => {
   calculator.clear();
@@ -31,14 +32,34 @@ calc_backspace.addEventListener("click", () => {
 
 calc_nums.forEach((button) => {
   button.addEventListener("click", () => {
-    calculator.appendNum(button.innerHTML);
+    calculator.appendNum(button.innerText);
     calculator.updateViewer();
   });
 });
 
+// Add event listener on keydown
+document.addEventListener("keydown", (event) => {
+  if (calculator.isNum(event.key)) {
+    calculator.appendNum(event.key);
+  } else if (calculator.isOperator(event.key)) {
+    calculator.operatorSelect(event.key);
+  } else if (event.key === "Enter" || event.key === "=") {
+    calculator.equals();
+  } else if (event.key === "Backspace") {
+    calculator.backspace();
+  } else if (event.key === "²") {
+    calculator.square();
+  } else if (event.key === "%") {
+    calculator.percentage();
+  } else {
+    return;
+  }
+  calculator.updateViewer();
+});
+
 calc_ops.forEach((button) => {
   button.addEventListener("click", () => {
-    calculator.operatorSelect(button.innerHTML);
+    calculator.operatorSelect(button.innerText);
     calculator.updateViewer();
   });
 });

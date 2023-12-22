@@ -64,6 +64,18 @@ test("backspace should remove the last character of currentNum", () => {
   expect(calculator.currentNum).toBe("6");
 });
 
+test("backspace should not remove the last character of currentNum if currentNum length is going to 0", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "6";
+
+  // When
+  calculator.backspace();
+
+  // Then
+  expect(calculator.currentNum).toBe("0");
+});
+
 test("appendNum should append a number to currentNum string", () => {
   // Given
   calculator.currentNum = "66";
@@ -106,6 +118,18 @@ test("appendNum should not append a . to current number if current number contai
 
   // Then
   expect(calculator.currentNum).toBe("0.");
+});
+
+test("appendNum should reset currentNum after a calculation was done using equals", () => {
+  // Given
+  calculator.accumulatorNum = "66+4=";
+  calculator.currentNum = "70";
+
+  // When
+  calculator.appendNum("5");
+
+  // Then
+  expect(calculator.currentNum).toBe("5");
 });
 
 test("operatorSelect should append an operator to previous number", () => {
@@ -298,15 +322,14 @@ test("equals should not work if accumulatorNum ends with an operator and current
 
 test("spamming equals should keep executing the last currentNum action with accumulatorNum last operator", () => {
   // Given
-  calculator.accumulatorNum = "5+";
+  calculator.accumulatorNum = "55+";
   calculator.currentNum = "5";
 
   // When
   calculator.equals();
   calculator.equals();
-  calculator.equals();
 
   // Then
-  expect(calculator.accumulatorNum).toBe("5+5+5+5=");
-  expect(calculator.currentNum).toBe("20");
+  expect(calculator.accumulatorNum).toBe("60+5=");
+  expect(calculator.currentNum).toBe("65");
 });
