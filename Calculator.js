@@ -33,7 +33,7 @@ class Calculator {
 
   appendNum(num) {
     if (num !== ".") {
-      if (this.currentNum === "0") {
+      if (this.currentNum === "0" || this.currentNum === "NaN") {
         this.currentNum = num;
       } else if (
         this.accumulatorNum.charAt(this.accumulatorNum.length - 1) === "="
@@ -79,7 +79,7 @@ class Calculator {
   }
 
   inverse() {
-    if (this.currentNum !== "0") {
+    if (this.currentNum !== "0" && this.currentNum !== "") {
       this.currentNum = String(1 / parseFloat(this.currentNum));
     }
   }
