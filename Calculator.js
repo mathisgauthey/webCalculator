@@ -156,6 +156,7 @@ class Calculator {
 
   updateViewer() {
     viewer_accumulator.innerText = this.accumulatorNum;
+    viewer_accumulator.scrollLeft = viewer_accumulator.scrollWidth;
     viewer_current.innerText = this.currentNum;
   }
 }
