@@ -24,10 +24,7 @@ class Calculator {
   backspace() {
     if (this.currentNum === "0") {
       return;
-    } else if (
-      this.accumulatorNum.length === 0 &&
-      this.currentNum.length === 1
-    ) {
+    } else if (this.accumulatorNum === "" && this.currentNum.length === 1) {
       this.currentNum = "0";
     } else {
       this.currentNum = this.currentNum.slice(0, -1);
