@@ -326,7 +326,7 @@ test("plusMinus should change currentNum as a positive to a negative value", () 
   calculator.plusMinus();
 
   // Then
-  expect(calculator.currentNum).toBe("-6");
+  expect(calculator.currentNum).toBe("(-6)");
 });
 
 test("plusMinus should change currentNum as a negative to a positive value", () => {
@@ -338,6 +338,20 @@ test("plusMinus should change currentNum as a negative to a positive value", () 
 
   // Then
   expect(calculator.currentNum).toBe("9");
+});
+
+test("plusMinus should not break equals if used after a - operator", () => {
+  // Given
+  calculator.accumulatorNum = "66-";
+  calculator.currentNum = "4";
+
+  // When
+  calculator.plusMinus();
+  calculator.equals();
+
+  // Then
+  expect(calculator.accumulatorNum).toBe("66-(-4)=");
+  expect(calculator.currentNum).toBe("70");
 });
 
 test("plusMinus should not change currentNum if currentNum is empty", () => {

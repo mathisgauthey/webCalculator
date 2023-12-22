@@ -118,7 +118,15 @@ class Calculator {
 
   plusMinus() {
     if (this.currentNum !== "") {
-      this.currentNum = String(-1 * parseFloat(this.currentNum));
+      const regex = /\(\s*-\s*(\d+)\s*\)/;
+      if (this.currentNum.match(regex)) {
+        this.currentNum = this.currentNum.replace(regex, "$1");
+      } else if (this.currentNum.charAt(0) === "-") {
+        console.log("Here we go");
+        this.currentNum = this.currentNum.substring(1);
+      } else {
+        this.currentNum = "(" + String(-1 * parseFloat(this.currentNum)) + ")";
+      }
     }
   }
 
