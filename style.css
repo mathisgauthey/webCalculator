@@ -10,6 +10,15 @@ h1 {
   text-align: center;
 }
 
+footer {
+  text-align: center;
+}
+
+footer img {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
 .calculator {
   display: flex;
   flex-direction: column;
@@ -60,7 +69,7 @@ h1 {
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1%;
+  gap: 4px;
 }
 
 button {
