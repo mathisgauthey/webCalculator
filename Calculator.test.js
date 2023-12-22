@@ -1,6 +1,11 @@
 global.math = require("./math.js");
 const Calculator = require("./Calculator");
 
+math.config({
+  number: "BigNumber",
+  precision: 16,
+});
+
 let calculator;
 
 beforeEach(() => {
@@ -401,6 +406,18 @@ test("equals should not work if accumulatorNum ends with an operator and current
   // Then
   expect(calculator.accumulatorNum).toBe("66+5+");
   expect(calculator.currentNum).toBe("");
+});
+
+test("equals should give adequate result on decimals", () => {
+  // Given
+  calculator.accumulatorNum = "0.1+";
+  calculator.currentNum = "0.2";
+
+  // When
+  calculator.equals();
+
+  // Then
+  expect(calculator.currentNum).toBe("0.3");
 });
 
 test("spamming equals should keep executing the last currentNum action with accumulatorNum last operator", () => {
