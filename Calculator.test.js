@@ -64,6 +64,18 @@ test("backspace should remove the last character of currentNum", () => {
   expect(calculator.currentNum).toBe("6");
 });
 
+test("backspace should not remove the last character of currentNum if currentNum length is going to 0", () => {
+  // Given
+  calculator.accumulatorNum = "";
+  calculator.currentNum = "6";
+
+  // When
+  calculator.backspace();
+
+  // Then
+  expect(calculator.currentNum).toBe("0");
+});
+
 test("appendNum should append a number to currentNum string", () => {
   // Given
   calculator.currentNum = "66";
